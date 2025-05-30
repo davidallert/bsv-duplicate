@@ -17,6 +17,13 @@ def incorrect_temp_file():
 
   return content
 
+@pytest.fixture
+def less_than_two():
+  with open("./data/lessthan2.bib", "r") as source_file:
+    content = source_file.read()
+
+  return content
+
 def test_correct_file_format(correct_temp_file):
   result = detect_duplicates(correct_temp_file)
   assert result == ["frattini2023requirements"]
@@ -24,3 +31,7 @@ def test_correct_file_format(correct_temp_file):
 def test_correct_file_format(incorrect_temp_file):
   with pytest.raises(Exception):
     detect_duplicates(incorrect_temp_file)
+
+def test_correct_file_format(less_than_two):
+  with pytest.raises(ValueError):
+    detect_duplicates(less_than_two)
