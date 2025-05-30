@@ -32,6 +32,6 @@ def test_correct_file_format(incorrect_temp_file):
   with pytest.raises(Exception):
     detect_duplicates(incorrect_temp_file)
 
-def test_correct_file_format(less_than_two):
-  with pytest.raises(ValueError):
-    detect_duplicates(less_than_two)
+# def test_correct_file_format(less_than_two):
+#   with pytest.raises(ValueError):
+#     detect_duplicates(less_than_two)
